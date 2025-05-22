@@ -43,7 +43,8 @@ A production-grade, secure, and scalable **serverless backend system** for handl
 
 ### Request Body Example
 
-```json
+```
+json
 {
   "name": "Jane Doe",
   "email": "jane@example.com",
@@ -63,6 +64,7 @@ Edit
 {
   "error": "Missing required fields"
 }
+```
 Lambda Function Overview (Python)
 python
 Copy
@@ -107,8 +109,12 @@ def lambda_handler(event, context):
     )
     
     return {"statusCode": 200, "body": json.dumps({"message": "Submission received!"})}
-System Architecture Diagram
+```
 
+System Architecture Diagram
+![Solution Architecture](serverless%20contact%20form.JPG)
+
+```
 Security & Permissions
 Fine-grained IAM policies grant the Lambda function access only to:
 
@@ -121,7 +127,7 @@ Write logs to CloudWatch
 No publicly exposed credentials or storage buckets
 
 API Gateway exposes only a POST method to /contact route
-
+```
 Deployment Notes
 Ensure Lambda has permission using lambda:InvokeFunction by API Gateway
 
@@ -134,10 +140,12 @@ AmazonSNSFullAccess
 CloudWatchLogsFullAccess
 
 Use Postman or curl to test the POST /contact endpoint
+```
 
 Author
 Cloud Architect Emma
-GitHub Profile
+
+```
 
 License
 This project is open-source and available under the MIT License
