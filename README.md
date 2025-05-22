@@ -43,7 +43,8 @@ A production-grade, secure, and scalable **serverless backend system** for handl
 
 ### Request Body Example
 
-```
+---
+
 json
 {
   "name": "Jane Doe",
@@ -64,11 +65,10 @@ Edit
 {
   "error": "Missing required fields"
 }
-```
-Lambda Function Overview (Python)
-python
-Copy
-Edit
+
+---
+
+## Lambda Function Overview (Python)
 import boto3, uuid, json
 from datetime import datetime
 
@@ -109,13 +109,15 @@ def lambda_handler(event, context):
     )
     
     return {"statusCode": 200, "body": json.dumps({"message": "Submission received!"})}
-```
+    
+---
 
-System Architecture Diagram
-![Solution Architecture](serverless%20contact%20form.JPG)
+## System Architecture Diagram
+![System Architecture Diagram](Solution%20Architecture/serverless%20contact%20form.JPG)
 
-```
-Security & Permissions
+---
+
+## Security & Permissions
 Fine-grained IAM policies grant the Lambda function access only to:
 
 Write to DynamoDB
@@ -127,8 +129,10 @@ Write logs to CloudWatch
 No publicly exposed credentials or storage buckets
 
 API Gateway exposes only a POST method to /contact route
-```
-Deployment Notes
+
+---
+
+## Deployment Notes
 Ensure Lambda has permission using lambda:InvokeFunction by API Gateway
 
 Attach the following IAM managed or custom inline policies:
@@ -140,12 +144,13 @@ AmazonSNSFullAccess
 CloudWatchLogsFullAccess
 
 Use Postman or curl to test the POST /contact endpoint
-```
 
-Author
+---
+
+## Author
 Cloud Architect Emma
 
-```
+---
 
-License
+## License
 This project is open-source and available under the MIT License
